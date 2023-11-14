@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/css/blogcss.css" />
+    <%- include('../views/partials/links'); %>  
+   
+</head>
+
+<body>
+
+                <!-- header part -->
+
+<nav class="navbar navbar-expand-lg bg-primary navbar-light">
+    <div class="container mt-1">
+        <h2 class="text-white">FOOD SHARE</h2>
+        <button class="navbar-toggler btn btn-secondary" type="button" data-toggle="collapse"
+            data-target="#collapsenavbar">
+            <span class="navbar-toggler-icon "></span>
+        </button>
+
+        <div class="collapse navbar-collapse text-center" id="collapsenavbar">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item px-2">
+                    <a href="/logout" class="nav-link text-white"> LOGOUT </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+                    <!-- page content -->
+
+          <div class="container mt-3">
+            <div class="d-flex justify-content-center">
+                <form class="col-md-6" id="profile" action="/profile %>" method="post">
+
+                    <div class="form-group">
+                        <label for="userName">Name</label>
+                        <input type="text" class="form-control" id="userName" name="userName" value="<%= users.userName %>" required>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="emailID">Email ID</label>
+                        <input type="text" class="form-control" id="emailID" name="emailID" value="<%= users.emailID %>" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone No</label>
+                        <input type="text" class="form-control" id="phone" name="phone" value="<%= users.phone %>" required>
+                    </div>
+
+                    <div class="row mx-md-n2">
+                        <div class="col px-md-2">
+                            <label for="houseNo">House No</label>
+                            <input type="text" class="form-control" id="houseNo" name="houseNo" value="<%= users.houseNo %>" required>
+                        </div>
+                        <div class="col px-2">
+                            <label for="society">Society</label>
+                            <input type="text" class="form-control" id="society" name="society" value="<%= users.society %>" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="landmark">Landmark</label>
+                        <input type="text" class="form-control" id="landmark" name="landmark" value="<%= users.landmark %>" required>
+                    </div>
+
+                    <div class="row mx-md-n2">
+                        <div class="col px-md-2">
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" id="city" name="city" value="<%= users.city %>" required>
+                        </div>
+                        <div class="col px-2">
+                            <label for="state">State</label>
+                            <input type="text" class="form-control" id="state" name="state" value="<%= users.state %>" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pincode">Pincode</label>
+                        <input type="text" class="form-control" id="pincode" name="pincode" value="<%= users.pincode %>" required>
+                    </div>
+
+                  <div class="form-group"></div>
+                  <input type="submit" class="btn btn-primary btn-info mt-2" value="UPDATE">
+
+                    </div>
+                </form>
+            </div>
+
+
+    <!-- <%- include('../views/partials/footer'); %> -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    
+</body>
+
+</html>

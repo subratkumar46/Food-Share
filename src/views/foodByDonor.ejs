@@ -1,0 +1,106 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="/css/blogcss.css" />
+
+  <%- include('../views/partials/links'); %>
+
+</head>
+
+<body>
+
+  <!-- header part -->
+
+  <nav class="navbar navbar-expand-lg bg-primary navbar-light">
+    <div class="container mt-1">
+      <h2 class="text-white">FOOD SHARE</h2>
+      <button class="navbar-toggler btn btn-secondary" type="button" data-toggle="collapse"
+        data-target="#collapsenavbar">
+        <span class="navbar-toggler-icon "></span>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="collapsenavbar">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item px-2">
+            <a href="/foodbydonor" class="nav-link text-white"> HOME </a>
+          </li>
+          <li class="nav-item px-2">
+            <a href="/food" class="nav-link text-white"> ADD FOOD </a>
+          </li>
+          <li class="nav-item px-2">
+            <a href="/profile" class="nav-link text-white"> PROFILE </a>
+          </li>
+          <li class="nav-item px-2">
+            <a href="/logout" class="nav-link text-white"> LOGOUT </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- page content -->
+
+  <% function formatDate(dateObject) { let d=new Date(dateObject); let day=d.getDate(); let month=d.getMonth() + 1; let
+    year=d.getFullYear(); if (day < 10) { day="0" + day; } if (month < 10) { month="0" + month; } let date=year + "-" +
+    month + "-" + day; return date; };%>
+
+    <div class="main-wrapper mt-0">
+      <div class="container main-container">
+        <% foods.forEach(food=> { %>
+          <div class="row main-row mt-4">
+            <div class="col-12 align-center">
+              <div class="row p-3">
+                <div class="col-5 align-middle">
+
+
+                  <div class="card">
+                  
+                    <img class="card-img-top" src="<%= food.image %>">
+                    </div>
+
+
+
+                    
+                    
+
+                        </div>
+                    
+                        <div class="col-4 align-middle mt-4">
+                       <h4> <%= food.foodType %></h4>
+                          Quantity: <%= food.quantity %> Persons<br>
+                            <%= food.oldFood %> days before cooked<br>
+                            Expiry Date:  <%= formatDate(food.expiryDate) %>
+                         
+                        </div>
+                    
+                        <div class="col-3 mt-3">
+                          
+
+                            <% if (food.status !== 'donated') { %>
+                              <% if (food.expiryDate < new Date()) { %>
+                                <h5 class="text-danger">Expired</h5>
+                              
+                                <% } %><br />
+                          <a href="/request/<%= food._id %>" class="btn btn-primary btn-block">View Requests</a>
+                              <% } else { %>
+                                <a href="" class="btn btn-danger btn-block">Allready Donated</a>
+                                <% } %>
+                        </div>
+
+                 
+              </div>
+            </div>
+          </div>
+          <% }) %>
+      </div>
+    </div>
+    </div>
+    <div>
+      <%- include('../views/partials/footer'); %>
+    </div>
+
+
+</body>
+
+</html>

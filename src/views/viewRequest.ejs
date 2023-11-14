@@ -1,0 +1,86 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="/css/blogcss.css" />
+
+  <%- include('../views/partials/links'); %>
+
+</head>
+
+<body>
+
+  <!-- header part -->
+
+      <nav class="navbar navbar-expand-lg bg-primary navbar-light">
+        <div class="container mt-1">
+          <h2 class="text-white">FOOD SHARE</h2>
+          <button class="navbar-toggler btn btn-secondary" type="button" data-toggle="collapse" data-target="#collapsenavbar">
+            <span class="navbar-toggler-icon "></span>
+          </button>
+      
+          <div class="collapse navbar-collapse text-center" id="collapsenavbar">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item px-2">
+                <a href="/foodbydonor" class="nav-link text-white"> HOME </a>
+              </li>
+              <li class="nav-item px-2">
+                <a href="/food" class="nav-link text-white"> ADD FOOD </a>
+              </li>
+              <li class="nav-item px-2">
+                <a href="/profile" class="nav-link text-white"> PROFILE </a>
+              </li>
+              <li class="nav-item px-2">
+                <a href="/logout" class="nav-link text-white"> LOGOUT </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+  <!-- page content -->
+
+  <% function formatDate(dateObject) { let d=new Date(dateObject); let day=d.getDate(); let month=d.getMonth() + 1; let
+    year=d.getFullYear(); if (day < 10) { day="0" + day; } if (month < 10) { month="0" + month; } let date=year + "-" +
+    month + "-" + day; return date; };%>
+
+    <div class="main-wrapper mt-0">
+      <div class="container main-container">
+        <% requests.forEach(request=> { %>
+          <div class="row main-row mt-4">
+            <div class="col-12 align-center">
+              <div class="row p-3">
+                <div class="col-5 align-middle">
+
+                  User : <%= request.customerId.userName %> <br>
+                  Email ID : <%= request.customerId.emailID %><br>
+                  Phone: <%= request.customerId.emailID %>
+                  
+                </div>
+
+                <div class="col-5 align-middle">
+                  Address : <%= request.customerId.houseNo %>, <%= request.customerId.society %> <br>
+                    <%= request.customerId.landmark %><br>
+                      City: <%= request.customerId.city %>
+
+                </div>
+
+                <div class="col-2 mt-3">
+
+                  <a href="/accept/<%= request._id %>" class="btn btn-primary btn-block">Accept</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+      </div>
+    </div>
+    </div>
+    <div>
+      <%- include('../views/partials/footer'); %>
+    </div>
+
+
+</body>
+
+</html>
