@@ -28,7 +28,7 @@ FoodShare is designed to address the critical issues of food waste and hunger wi
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/FoodShare.git
+    git clone https://github.com/subratkumar46/Food-Share.git
     ```
 
 2. **Navigate to the project directory:**
